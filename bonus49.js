@@ -11,7 +11,7 @@ btnPlayElement.addEventListener('click', function(){
     //devo fare si che la griglia si svuota ogni volta che clicco il pulsante PLAY
     gridElement.innerHTML = '';
     //caselle generate dal ciclo for
-   for (let i = 0; i < 81; i++) {
+   for (let i = 0; i < 49; i++) {
        const n = i + 1;
        console.log(n)
 
