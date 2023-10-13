@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    width: calc(100% / 10);
+	border: 1px solid black;
+}
