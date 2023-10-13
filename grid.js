@@ -5,6 +5,12 @@ console.log("grid.js");
 //Quando l’utente clicca su ogni cella, la cella cliccata 
 //si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
 
+
+
+
+
+
+
 //creo i riferimento per la griglia e per il bottone play
 const gridElement = document.querySelector('.grid');
 console.log(gridElement);
@@ -27,4 +33,16 @@ btnPlayElement.addEventListener('click', function(){
 
    gridElement.innerHTML += cellMain;
    }
-})
+
+   //event listener per ogni cella alla pressione del pulsante PLAY 
+   const cell = document.querySelectorAll('.cell');
+
+   for (let i = 0; i < cell.length; i++) {
+       cell[i].addEventListener('click', function(){
+           cell[i].style.backgroundColor = 'aqua';
+           console.log(cell[i]);
+       });
+   }
+});
+
+
