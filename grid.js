@@ -1,48 +1,56 @@
-console.log("grid.js");
-//L’utente clicca su un bottone che genererà una griglia di gioco quadrata. 
-//Ogni cella ha un numero progressivo, da 1 a 100. 
-//Ci saranno quindi 10 caselle per ognuna delle 10 righe. 
-//Quando l’utente clicca su ogni cella, la cella cliccata 
-//si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
+// creo riferimenti per griglia, pulsante e select
+const grid = document.querySelector('.grid');
+const playButton = document.getElementById('btn-play');
+const difficultySelect = document.getElementById('select');
 
+// quando clicco play
+playButton.addEventListener('click', function () {
+console.log("Hai cliccato sul pulsante 'PLAY'");
 
+// Rimuovo la griglia generata per on averla infinita.
+while (grid.firstChild) {
+grid.removeChild(grid.firstChild);
+}
+console.log("La griglia è vuota");
 
+// difficoltà selezionata 
+const selectedDifficulty = difficultySelect.value;
+console.log("Difficoltà:", selectedDifficulty);
 
+// creo griglia in base alla difficoltà
+let cellCount;
+if (selectedDifficulty === 'grid') {
+cellCount = 100;
+} else if (selectedDifficulty === 'bonus81') {
+cellCount = 81;
+} else if (selectedDifficulty === 'bonus49') {
+cellCount = 49;
+}
+console.log(cellCount, "caselle");
 
+// creo la griglia
+for (let i = 0; i < cellCount; i++) {
+const cell = document.createElement('div');
+cell.textContent = i + 1;
+cell.className = 'cell';
+grid.appendChild(cell);
 
+// difficoltà bonus81
+if (selectedDifficulty === 'bonus81') {
+cell.className += ' cell-81';
+}
+// difficoltà bonus49
+else if (selectedDifficulty === 'bonus49') {
+cell.className += ' cell-49';
+}
 
-//creo i riferimento per la griglia e per il bottone play
-const gridElement = document.querySelector('.grid');
-console.log(gridElement);
-const btnPlayElement = document.getElementById('btn-play');
-console.log(btnPlayElement);
-
-//creo la griglia di 10 x 10 celle alla pressione del pulsante PLAY
-// Aggiungo un event listener al pulsante PLAY
-btnPlayElement.addEventListener('click', function(){
-    //devo fare si che la griglia si svuota ogni volta che clicco il pulsante PLAY
-    gridElement.innerHTML = '';
-    //caselle generate dal ciclo for
-   for (let i = 0; i < 100; i++) {
-       const n = i + 1;
-       console.log(n)
-
-    //devo visualizzare le celle ora
-   const cellMain = '<div class="cell">' + n + '</div>';
-   console.log(cellMain);
-
-   gridElement.innerHTML += cellMain;
-   }
-
-   //event listener per ogni cella alla pressione del pulsante PLAY 
-   const cell = document.querySelectorAll('.cell');
-
-   for (let i = 0; i < cell.length; i++) {
-       cell[i].addEventListener('click', function(){
-           cell[i].style.backgroundColor = 'aqua';
-           console.log(cell[i]);
-       });
-   }
+// clicchi su una casella, cambia il suo colore 
+cell.addEventListener('click', function () {
+cell.style.backgroundColor = 'aqua';
+console.log("Hai cliccato sulla casella numero", i + 1);
 });
+}
+});
+
 
 
