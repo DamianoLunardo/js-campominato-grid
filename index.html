@@ -8,26 +8,22 @@
     <title>Campominato</title>
 </head>
 <body>
-
-    <header class="mt-2">
-        <div class="container">
-            <button id="btn-play">PLAY</button>
-            <select>
-                <option value="grid.js">Normale</option>
-                <option value="bonus81.js">Medio</option>
-                <option value="bonus49.js">Difficile</option>
+<header class="mt-2">
+    <div class="container">
+        <button id="btn-play">PLAY</button>
+            <select id="select">
+                <option id="normale" value="grid">Normale</option>
+                <option id="medio" value="bonus81">Medio</option>
+                <option id="difficile" value="bonus49">Difficile</option>
             </select>
         </div>
-    </header>
-    
-   <section class="mt-5">
+</header>
+
+<section class="mt-5">
     <div class="container">
-        <div class="grid"></div>
+    <div class="grid"></div>
     </div>
    </section>
-
-    <script src="grid.js"></script>
-    <script src="bonus81.js"></script>
-    <script src="bonus49.js"></script>
+<script src="grid.js"></script>
 </body>
 </html>
